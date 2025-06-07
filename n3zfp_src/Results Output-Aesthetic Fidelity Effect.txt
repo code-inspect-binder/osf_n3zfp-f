@@ -1,0 +1,941 @@
+> ################################################################################################################################
+> #R-code for all analyses reported in the following paper:
+> #"The Aesthetic Fidelity Effect" by Annika Wiecek, Daniel Wentzel, & Jan R. Landwehr
+> #International Journal of Research in Marketing
+> #
+> #Please note: The datasets for Studies 1A-1C contain confidential information we are not allowed to share publicly.
+> #Please contact the corresponding author if you would like us to run additional analyses on these datasets.
+> ################################################################################################################################
+> 
+> ################################################################################################################################
+> ###Study 1A) Cars
+> 
+> summary(lm(z_km ~ z_zustimmung, data=R2))
+
+Call:
+lm(formula = z_km ~ z_zustimmung, data = R2)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.24153 -0.61323  0.01178  0.65079  2.06168 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)   
+(Intercept)  1.322e-16  1.069e-01   0.000  1.00000   
+z_zustimmung 3.816e-01  1.138e-01   3.354  0.00132 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.8813 on 66 degrees of freedom
+Multiple R-squared:  0.1456,    Adjusted R-squared:  0.1327 
+F-statistic: 11.25 on 1 and 66 DF,  p-value: 0.001324
+
+> summary(lm(z_km ~ z_ps + z_beschleunigung + z_verbrauch + z_preis + z_bekanntheit, data=R2))
+
+Call:
+lm(formula = z_km ~ z_ps + z_beschleunigung + z_verbrauch + z_preis + 
+    z_bekanntheit, data = R2)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.9437 -0.6215 -0.1187  0.6070  2.1414 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)
+(Intercept)      9.531e-17  1.132e-01   0.000    1.000
+z_ps             6.080e-02  2.718e-01   0.224    0.824
+z_beschleunigung 2.045e-01  2.180e-01   0.938    0.352
+z_verbrauch      9.388e-02  1.606e-01   0.585    0.561
+z_preis          2.670e-01  2.074e-01   1.288    0.203
+z_bekanntheit    1.288e-01  1.306e-01   0.986    0.328
+
+Residual standard error: 0.9337 on 62 degrees of freedom
+Multiple R-squared:  0.09924,   Adjusted R-squared:  0.0266 
+F-statistic: 1.366 on 5 and 62 DF,  p-value: 0.2493
+
+> summary(lm(z_km ~ z_zustimmung + z_ps + z_beschleunigung + z_verbrauch + z_preis + z_bekanntheit, data=R2))
+
+Call:
+lm(formula = z_km ~ z_zustimmung + z_ps + z_beschleunigung + 
+    z_verbrauch + z_preis + z_bekanntheit, data = R2)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.26432 -0.65242  0.02148  0.46556  2.22782 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(>|t|)  
+(Intercept)       1.829e-16  1.088e-01   0.000   1.0000  
+z_zustimmung      3.375e-01  1.365e-01   2.472   0.0162 *
+z_ps              7.943e-02  2.614e-01   0.304   0.7622  
+z_beschleunigung  2.559e-01  2.106e-01   1.215   0.2290  
+z_verbrauch      -7.811e-03  1.597e-01  -0.049   0.9612  
+z_preis           2.018e-01  2.010e-01   1.004   0.3194  
+z_bekanntheit     3.224e-02  1.315e-01   0.245   0.8071  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.8974 on 61 degrees of freedom
+Multiple R-squared:  0.1813,    Adjusted R-squared:  0.1007 
+F-statistic: 2.251 on 6 and 61 DF,  p-value: 0.05007
+
+> 
+> ################################################################################################################################
+> ###Study 1B) Maternity Wear
+> 
+> summary(mod.1b.1)
+
+Call:
+lm(formula = z_mietzeit ~ z_aesthetics, data = K)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.5156 -0.7852 -0.0672  0.6392  4.4150 
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  -1.807e-17  5.507e-02   0.000   1.0000  
+z_aesthetics  1.062e-01  5.559e-02   1.911   0.0569 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9881 on 320 degrees of freedom
+Multiple R-squared:  0.01128,   Adjusted R-squared:  0.00819 
+F-statistic: 3.651 on 1 and 320 DF,  p-value: 0.05694
+
+> summary(mod.1b.2)
+
+Call:
+lm(formula = z_mietzeit ~ z_price + as.factor(marke), data = K)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.3965 -0.6607 -0.0261  0.6296  4.2024 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)       -0.06090    0.09834  -0.619 0.536143    
+z_price           -0.29811    0.06382  -4.671 4.45e-06 ***
+as.factor(marke)2  0.20408    0.13475   1.515 0.130902    
+as.factor(marke)3 -0.15419    0.14931  -1.033 0.302552    
+as.factor(marke)4  1.78375    0.52475   3.399 0.000763 ***
+as.factor(marke)5  0.22855    0.26145   0.874 0.382714    
+as.factor(marke)6  0.45020    0.21356   2.108 0.035817 *  
+as.factor(marke)7 -0.81310    0.33109  -2.456 0.014599 *  
+as.factor(marke)8 -0.65643    0.34565  -1.899 0.058469 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9293 on 313 degrees of freedom
+Multiple R-squared:  0.1446,    Adjusted R-squared:  0.1228 
+F-statistic: 6.616 on 8 and 313 DF,  p-value: 5.424e-08
+
+> summary(mod.1b.3)
+
+Call:
+lm(formula = z_mietzeit ~ z_aesthetics + z_price + as.factor(marke), 
+    data = K)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.2832 -0.6450 -0.0263  0.6021  4.2253 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)       -0.10842    0.09982  -1.086  0.27826    
+z_aesthetics       0.13349    0.05791   2.305  0.02182 *  
+z_price           -0.30291    0.06342  -4.776 2.75e-06 ***
+as.factor(marke)2  0.25653    0.13575   1.890  0.05973 .  
+as.factor(marke)3 -0.12770    0.14874  -0.859  0.39126    
+as.factor(marke)4  1.70639    0.52225   3.267  0.00121 ** 
+as.factor(marke)5  0.27935    0.26060   1.072  0.28458    
+as.factor(marke)6  0.63934    0.22742   2.811  0.00525 ** 
+as.factor(marke)7 -0.65414    0.33598  -1.947  0.05244 .  
+as.factor(marke)8 -0.45333    0.35442  -1.279  0.20181    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9229 on 312 degrees of freedom
+Multiple R-squared:  0.159,     Adjusted R-squared:  0.1347 
+F-statistic: 6.552 on 9 and 312 DF,  p-value: 1.448e-08
+
+> 
+> summary(aov(mod.1b.2))
+                  Df Sum Sq Mean Sq F value   Pr(>F)    
+z_price            1  15.13  15.132  17.523 3.69e-05 ***
+as.factor(marke)   7  30.57   4.367   5.057 1.87e-05 ***
+Residuals        313 270.30   0.864                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> summary(aov(mod.1b.3))
+                  Df Sum Sq Mean Sq F value   Pr(>F)    
+z_aesthetics       1   3.56   3.564   4.184   0.0416 *  
+z_price            1  16.18  16.180  18.994 1.78e-05 ***
+as.factor(marke)   7  30.49   4.355   5.113 1.62e-05 ***
+Residuals        312 265.77   0.852                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> ################################################################################################################################
+> ###Study 1C) Children Clothes
+> 
+> summary(mod.1c.1)
+
+Call:
+lm(formula = z_mietzeit ~ z_aesthetics, data = RS)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.5988 -0.5397 -0.0122  0.6122  4.1483 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  2.386e-17  4.578e-02   0.000   1.0000  
+z_aesthetics 7.965e-02  4.613e-02   1.727   0.0849 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9915 on 467 degrees of freedom
+Multiple R-squared:  0.006344,  Adjusted R-squared:  0.004216 
+F-statistic: 2.982 on 1 and 467 DF,  p-value: 0.08488
+
+> summary(mod.1c.2)
+
+Call:
+lm(formula = z_mietzeit ~ z_price + as.factor(marke), data = RS)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.0551 -0.4662 -0.0257  0.5590  3.7619 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        -0.62995    0.16518  -3.814 0.000157 ***
+z_price             0.05500    0.06075   0.905 0.365792    
+as.factor(marke)2   0.19669    0.44034   0.447 0.655319    
+as.factor(marke)3   0.92190    0.20444   4.509 8.35e-06 ***
+as.factor(marke)4   0.22661    0.66122   0.343 0.731974    
+as.factor(marke)5   1.01405    0.19109   5.307 1.78e-07 ***
+as.factor(marke)6   0.47000    0.23563   1.995 0.046701 *  
+as.factor(marke)7   0.37469    0.31408   1.193 0.233528    
+as.factor(marke)8   0.60024    0.24573   2.443 0.014972 *  
+as.factor(marke)9  -0.11874    0.72827  -0.163 0.870557    
+as.factor(marke)10  0.71936    0.25078   2.869 0.004323 ** 
+as.factor(marke)11  0.37684    0.38217   0.986 0.324652    
+as.factor(marke)12  0.37416    0.66188   0.565 0.572163    
+as.factor(marke)13  0.96140    0.29305   3.281 0.001118 ** 
+as.factor(marke)14  1.85283    0.48430   3.826 0.000149 ***
+as.factor(marke)15  1.23897    0.48553   2.552 0.011055 *  
+as.factor(marke)16 -0.87849    0.41790  -2.102 0.036108 *  
+as.factor(marke)17  1.43478    0.66127   2.170 0.030562 *  
+as.factor(marke)18  0.85552    0.48324   1.770 0.077355 .  
+as.factor(marke)19  0.74220    0.20200   3.674 0.000268 ***
+as.factor(marke)20  1.31567    0.40979   3.211 0.001422 ** 
+as.factor(marke)21 -1.69646    0.55406  -3.062 0.002335 ** 
+as.factor(marke)22  0.12400    0.21625   0.573 0.566678    
+as.factor(marke)23 -0.96686    0.55072  -1.756 0.079850 .  
+as.factor(marke)24  0.60377    0.93091   0.649 0.516951    
+as.factor(marke)25 -0.23798    0.43705  -0.545 0.586364    
+as.factor(marke)26  0.12243    0.57415   0.213 0.831245    
+as.factor(marke)27  1.10622    0.36006   3.072 0.002256 ** 
+as.factor(marke)28 -0.32242    0.92251  -0.350 0.726881    
+as.factor(marke)29 -0.07198    0.54937  -0.131 0.895823    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9046 on 439 degrees of freedom
+Multiple R-squared:  0.2224,    Adjusted R-squared:  0.171 
+F-statistic: 4.329 on 29 and 439 DF,  p-value: 5.607e-12
+
+> summary(mod.1c.3)
+
+Call:
+lm(formula = z_mietzeit ~ z_aesthetics + z_price + as.factor(marke), 
+    data = RS)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.0427 -0.4667 -0.0066  0.5374  3.7018 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        -0.59660    0.16489  -3.618 0.000331 ***
+z_aesthetics        0.11231    0.04686   2.397 0.016966 *  
+z_price             0.07398    0.06094   1.214 0.225401    
+as.factor(marke)2   0.03669    0.44304   0.083 0.934039    
+as.factor(marke)3   0.86469    0.20474   4.223 2.93e-05 ***
+as.factor(marke)4   0.19771    0.65779   0.301 0.763891    
+as.factor(marke)5   1.00913    0.19008   5.309 1.76e-07 ***
+as.factor(marke)6   0.34887    0.23976   1.455 0.146360    
+as.factor(marke)7   0.34296    0.31268   1.097 0.273305    
+as.factor(marke)8   0.58691    0.24448   2.401 0.016781 *  
+as.factor(marke)9  -0.32068    0.72925  -0.440 0.660340    
+as.factor(marke)10  0.65175    0.25102   2.596 0.009738 ** 
+as.factor(marke)11  0.35513    0.38023   0.934 0.350834    
+as.factor(marke)12  0.39604    0.65839   0.602 0.547803    
+as.factor(marke)13  0.89126    0.29295   3.042 0.002488 ** 
+as.factor(marke)14  1.77699    0.48274   3.681 0.000261 ***
+as.factor(marke)15  1.08857    0.48699   2.235 0.025900 *  
+as.factor(marke)16 -1.04739    0.42159  -2.484 0.013351 *  
+as.factor(marke)17  1.34385    0.65882   2.040 0.041971 *  
+as.factor(marke)18  0.89822    0.48098   1.867 0.062500 .  
+as.factor(marke)19  0.73072    0.20098   3.636 0.000310 ***
+as.factor(marke)20  1.29135    0.40772   3.167 0.001647 ** 
+as.factor(marke)21 -1.75282    0.55160  -3.178 0.001589 ** 
+as.factor(marke)22  0.13120    0.21511   0.610 0.542243    
+as.factor(marke)23 -0.95007    0.54782  -1.734 0.083572 .  
+as.factor(marke)24  0.52981    0.92644   0.572 0.567700    
+as.factor(marke)25 -0.37246    0.43831  -0.850 0.395926    
+as.factor(marke)26  0.16814    0.57139   0.294 0.768701    
+as.factor(marke)27  1.15589    0.35873   3.222 0.001367 ** 
+as.factor(marke)28 -0.28754    0.91768  -0.313 0.754177    
+as.factor(marke)29 -0.07568    0.54643  -0.138 0.889910    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.8998 on 438 degrees of freedom
+Multiple R-squared:  0.2324,    Adjusted R-squared:  0.1799 
+F-statistic: 4.421 on 30 and 438 DF,  p-value: 1.256e-12
+
+> 
+> summary(aov(mod.1c.2))
+                  Df Sum Sq Mean Sq F value  Pr(>F)    
+z_price            1    1.1   1.137   1.389   0.239    
+as.factor(marke)  28  101.6   3.628   4.434 4.4e-12 ***
+Residuals        439  359.3   0.818                    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> summary(aov(mod.1c.3))
+                  Df Sum Sq Mean Sq F value   Pr(>F)    
+z_aesthetics       1    2.9   2.931   3.620   0.0577 .  
+z_price            1    0.6   0.646   0.798   0.3721    
+as.factor(marke)  28  103.8   3.707   4.579 1.26e-12 ***
+Residuals        438  354.6   0.810                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> ################################################################################################################################
+> ###Study 2) Aesthetic fidelity effect
+> 
+> #######################################################
+> ###Pre-Test
+> 
+> alpha(cbind(PT2aest1, PT2aest2, PT2aest3))
+
+Reliability analysis   
+Call: alpha(x = cbind(PT2aest1, PT2aest2, PT2aest3))
+
+  raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
+      0.98      0.98    0.97      0.94  48 0.003  2.6 1.9     0.95
+
+ lower alpha upper     95% confidence boundaries
+0.97 0.98 0.98 
+
+ Reliability if an item is dropped:
+         raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
+PT2aest1      0.97      0.97    0.95      0.95  36   0.0044    NA  0.95
+PT2aest2      0.96      0.96    0.91      0.91  22   0.0071    NA  0.91
+PT2aest3      0.98      0.98    0.96      0.96  48   0.0032    NA  0.96
+
+ Item statistics 
+           n raw.r std.r r.cor r.drop mean  sd
+PT2aest1 160  0.98  0.98  0.96   0.95  2.6 1.9
+PT2aest2 160  0.99  0.99  0.99   0.97  2.5 1.8
+PT2aest3 160  0.97  0.97  0.95   0.94  2.6 2.0
+
+Non missing response frequency for each item
+            1    2    3    4    5    6    7 miss
+PT2aest1 0.44 0.15 0.11 0.08 0.11 0.07 0.04    0
+PT2aest2 0.46 0.15 0.11 0.08 0.11 0.06 0.03    0
+PT2aest3 0.48 0.16 0.09 0.04 0.12 0.06 0.06    0
+> by(PT2$AestheticsPhone1, PT2$aest, FUN=mean)
+PT2$aest: high
+[1] 3.533333
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+PT2$aest: low
+[1] 1.708333
+> by(PT2$AestheticsPhone2, PT2$aest, FUN=mean)
+PT2$aest: high
+[1] 3.408333
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+PT2$aest: low
+[1] 1.65
+> t.test(PT2$AestheticsPhone1[PT2$aest=="high"], PT2$AestheticsPhone2[PT2$aest=="high"], paired = TRUE, var.equal = TRUE)
+
+        Paired t-test
+
+data:  PT2$AestheticsPhone1[PT2$aest == "high"] and PT2$AestheticsPhone2[PT2$aest == "high"]
+t = 0.8262, df = 39, p-value = 0.4137
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.1810216  0.4310216
+sample estimates:
+mean of the differences 
+                  0.125 
+
+> t.test(PT2$AestheticsPhone1[PT2$aest=="low"], PT2$AestheticsPhone2[PT2$aest=="low"], paired = TRUE, var.equal = TRUE)
+
+        Paired t-test
+
+data:  PT2$AestheticsPhone1[PT2$aest == "low"] and PT2$AestheticsPhone2[PT2$aest == "low"]
+t = 0.53363, df = 39, p-value = 0.5966
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.1627773  0.2794439
+sample estimates:
+mean of the differences 
+             0.05833333 
+
+> 
+> by(PT2$MeanAS1AS2, PT2$aest, FUN=mean)
+PT2$aest: high
+[1] 3.470833
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+PT2$aest: low
+[1] 1.679167
+> summary(aov(MeanAS1AS2 ~ aest, data=PT2))
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+aest         1   64.2   64.20   25.49 2.85e-06 ***
+Residuals   78  196.5    2.52                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> #######################################################
+> ###Main Study
+> 
+> #Sample descriptives
+> table(Stu2$Gender)[2]/nrow(Stu2)
+        w 
+0.4782609 
+> mean(Stu2$Age)
+[1] 22.2029
+> 
+> alpha(cbind(Stu2aest1, Stu2aest2, Stu2aest3))
+
+Reliability analysis   
+Call: alpha(x = cbind(Stu2aest1, Stu2aest2, Stu2aest3))
+
+  raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
+      0.96      0.96    0.94      0.89  25 0.006  2.9 1.7      0.9
+
+ lower alpha upper     95% confidence boundaries
+0.95 0.96 0.97 
+
+ Reliability if an item is dropped:
+          raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
+Stu2aest1      0.95      0.95    0.90      0.90  19   0.0087    NA  0.90
+Stu2aest2      0.93      0.93    0.86      0.86  13   0.0124    NA  0.86
+Stu2aest3      0.95      0.95    0.91      0.91  19   0.0086    NA  0.91
+
+ Item statistics 
+            n raw.r std.r r.cor r.drop mean  sd
+Stu2aest1 138  0.96  0.96  0.93   0.91  2.9 1.8
+Stu2aest2 138  0.97  0.97  0.96   0.94  2.9 1.6
+Stu2aest3 138  0.96  0.96  0.93   0.90  2.9 1.8
+
+Non missing response frequency for each item
+             1    2    3    4    5    6    7 miss
+Stu2aest1 0.28 0.27 0.15 0.11 0.07 0.07 0.06    0
+Stu2aest2 0.23 0.30 0.14 0.14 0.10 0.07 0.02    0
+Stu2aest3 0.31 0.20 0.12 0.15 0.12 0.07 0.04    0
+> 
+> alpha(Stu2[,4:7])
+
+Reliability analysis   
+Call: alpha(x = Stu2[, 4:7])
+
+  raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
+      0.93      0.93    0.91      0.77  14 0.013  3.8 1.4     0.78
+
+ lower alpha upper     95% confidence boundaries
+0.91 0.93 0.96 
+
+ Reliability if an item is dropped:
+                 raw_alpha std.alpha G6(smc) average_r  S/N alpha se   var.r med.r
+UsageEnjoyment_1      0.92      0.92    0.89      0.79 11.6    0.017 0.00031  0.79
+UsageEnjoyment_2      0.90      0.90    0.86      0.75  9.0    0.021 0.00079  0.75
+UsageEnjoyment_3      0.91      0.91    0.87      0.77  9.8    0.019 0.00151  0.78
+UsageEnjoyment_4      0.92      0.92    0.88      0.78 10.8    0.018 0.00097  0.78
+
+ Item statistics 
+                  n raw.r std.r r.cor r.drop mean  sd
+UsageEnjoyment_1 69  0.89  0.89  0.84   0.81  3.4 1.5
+UsageEnjoyment_2 69  0.93  0.93  0.91   0.87  4.0 1.6
+UsageEnjoyment_3 69  0.92  0.92  0.88   0.85  3.5 1.5
+UsageEnjoyment_4 69  0.90  0.90  0.86   0.83  4.1 1.5
+
+Non missing response frequency for each item
+                    1    2    3    4    5    6    7 miss
+UsageEnjoyment_1 0.13 0.10 0.30 0.22 0.14 0.10 0.00    0
+UsageEnjoyment_2 0.06 0.14 0.14 0.28 0.22 0.09 0.07    0
+UsageEnjoyment_3 0.09 0.19 0.23 0.20 0.20 0.06 0.03    0
+UsageEnjoyment_4 0.06 0.07 0.19 0.23 0.30 0.10 0.04    0
+> 
+> #Manipulation checks
+> by(Stu2$MeanAestheticsS1S2, Stu2$aest, FUN=mean)
+Stu2$aest: -1
+[1] 1.9
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu2$aest: 1
+[1] 3.877451
+> summary(aov(MeanAestheticsS1S2 ~ aest, data=Stu2))
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+aest         1  67.44   67.44   38.32 4.13e-08 ***
+Residuals   67 117.92    1.76                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> by(Stu2$AestheticsSmartphone1, Stu2$aest, FUN=mean)
+Stu2$aest: -1
+[1] 1.933333
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu2$aest: 1
+[1] 3.960784
+> by(Stu2$AestheticsSmartphone2, Stu2$aest, FUN=mean)
+Stu2$aest: -1
+[1] 1.866667
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu2$aest: 1
+[1] 3.794118
+> t.test(Stu2$AestheticsSmartphone1[Stu2$aest==1], Stu2$AestheticsSmartphone2[Stu2$aest==1], paired = TRUE, var.equal = TRUE)
+
+        Paired t-test
+
+data:  Stu2$AestheticsSmartphone1[Stu2$aest == 1] and Stu2$AestheticsSmartphone2[Stu2$aest == 1]
+t = 1.0845, df = 33, p-value = 0.286
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.1460042  0.4793376
+sample estimates:
+mean of the differences 
+              0.1666667 
+
+> t.test(Stu2$AestheticsSmartphone1[Stu2$aest==-1], Stu2$AestheticsSmartphone2[Stu2$aest==-1], paired = TRUE, var.equal = TRUE)
+
+        Paired t-test
+
+data:  Stu2$AestheticsSmartphone1[Stu2$aest == -1] and Stu2$AestheticsSmartphone2[Stu2$aest == -1]
+t = 0.67783, df = 34, p-value = 0.5025
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.1332095  0.2665429
+sample estimates:
+mean of the differences 
+             0.06666667 
+
+> 
+> by(Stu2$UsageEnjoyment, Stu2$aest, FUN=mean)
+Stu2$aest: -1
+[1] 2.978571
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu2$aest: 1
+[1] 4.602941
+> summary(aov(UsageEnjoyment ~ aest, data=Stu2))
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+aest         1  45.51   45.51   37.04 6.28e-08 ***
+Residuals   67  82.31    1.23                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> #ANOVA Models
+> by(Stu2$UsageDurationSeconds, Stu2$aest, FUN=mean)
+Stu2$aest: -1
+[1] 139.5714
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu2$aest: 1
+[1] 464.0882
+> summary(aov(UsageDurationSeconds ~ aest, data=Stu2))
+            Df  Sum Sq Mean Sq F value   Pr(>F)    
+aest         1 1816236 1816236   85.55 1.37e-13 ***
+Residuals   67 1422487   21231                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> by(Stu2$speed, Stu2$aest, FUN=mean)
+Stu2$aest: -1
+[1] -0.09771429
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu2$aest: 1
+[1] 1.779706
+> summary(aov(speed ~ aest, data=Stu2))
+            Df Sum Sq Mean Sq F value Pr(>F)  
+aest         1   60.8   60.79    4.05 0.0482 *
+Residuals   67 1005.7   15.01                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> #Regression Models
+> summary(glm(choice ~ aest, family=binomial, data=Stu2))
+
+Call:
+glm(formula = choice ~ aest, family = binomial, data = Stu2)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.7011  -1.1054   0.7325   0.7325   1.2512  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)  
+(Intercept)   0.5034     0.2639   1.907   0.0565 .
+aest          0.6753     0.2639   2.559   0.0105 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 92.367  on 68  degrees of freedom
+Residual deviance: 85.363  on 67  degrees of freedom
+AIC: 89.363
+
+Number of Fisher Scoring iterations: 4
+
+> 
+> addmargins(table(Stu2$choice, Stu2$aest))
+     
+      -1  1 Sum
+  0   19  8  27
+  1   16 26  42
+  Sum 35 34  69
+> 16/35
+[1] 0.4571429
+> 26/34
+[1] 0.7647059
+> 
+> #Estimate of the indirect effect and 95%-confidence interval
+> mean(boot_para$ind_effect)
+[1] 0.4084986
+> sort(boot_para$ind_effect)[126]
+[1] 0.02743908
+> sort(boot_para$ind_effect)[4875]
+[1] 1.265817
+> 
+> ################################################################################################################################
+> ###Study 3)
+> 
+> alpha(cbind(Stu3aest1, Stu3aest2, Stu3aest3))
+
+Reliability analysis   
+Call: alpha(x = cbind(Stu3aest1, Stu3aest2, Stu3aest3))
+
+  raw_alpha std.alpha G6(smc) average_r S/N    ase mean  sd median_r
+      0.95      0.95    0.93      0.86  18 0.0059  3.2 1.5     0.86
+
+ lower alpha upper     95% confidence boundaries
+0.94 0.95 0.96 
+
+ Reliability if an item is dropped:
+          raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
+Stu3aest1      0.92      0.92    0.86      0.86  12   0.0102    NA  0.86
+Stu3aest2      0.91      0.91    0.84      0.84  11   0.0112    NA  0.84
+Stu3aest3      0.94      0.94    0.88      0.88  15   0.0084    NA  0.88
+
+ Item statistics 
+            n raw.r std.r r.cor r.drop mean  sd
+Stu3aest1 234  0.95  0.95  0.92   0.89  3.3 1.6
+Stu3aest2 234  0.96  0.96  0.93   0.90  3.2 1.7
+Stu3aest3 234  0.94  0.94  0.90   0.88  3.0 1.6
+
+Non missing response frequency for each item
+             1    2    3    4    5    6    7 miss
+Stu3aest1 0.15 0.22 0.20 0.18 0.15 0.08 0.03    0
+Stu3aest2 0.17 0.21 0.21 0.21 0.09 0.07 0.05    0
+Stu3aest3 0.19 0.29 0.20 0.15 0.09 0.06 0.03    0
+> #Manipulation checks
+> Stu3$mean_aest <- (Stu3$AestheticsSmartphone1+Stu3$AestheticsSmartphone2)/2
+> by(Stu3$mean_aest, Stu3$aest, FUN=mean)
+Stu3$aest: -1
+[1] 2.741379
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu3$aest: 1
+[1] 3.590395
+> summary(aov(mean_aest ~ aest, data=Stu3))
+             Df Sum Sq Mean Sq F value  Pr(>F)   
+aest          1  21.08  21.083   10.76 0.00137 **
+Residuals   115 225.25   1.959                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> by(Stu3$AestheticsSmartphone1, Stu3$aest, FUN=mean)
+Stu3$aest: -1
+[1] 2.781609
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu3$aest: 1
+[1] 3.559322
+> by(Stu3$AestheticsSmartphone2, Stu3$aest, FUN=mean)
+Stu3$aest: -1
+[1] 2.701149
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu3$aest: 1
+[1] 3.621469
+> t.test(Stu3$AestheticsSmartphone1[Stu3$aest==1], Stu3$AestheticsSmartphone2[Stu3$aest==1], paired = TRUE, var.equal = TRUE)
+
+        Paired t-test
+
+data:  Stu3$AestheticsSmartphone1[Stu3$aest == 1] and Stu3$AestheticsSmartphone2[Stu3$aest == 1]
+t = -0.48535, df = 58, p-value = 0.6293
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.3184568  0.1941630
+sample estimates:
+mean of the differences 
+            -0.06214689 
+
+> t.test(Stu3$AestheticsSmartphone1[Stu3$aest==-1], Stu3$AestheticsSmartphone2[Stu3$aest==-1], paired = TRUE, var.equal = TRUE)
+
+        Paired t-test
+
+data:  Stu3$AestheticsSmartphone1[Stu3$aest == -1] and Stu3$AestheticsSmartphone2[Stu3$aest == -1]
+t = 0.53277, df = 57, p-value = 0.5963
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.2219570  0.3828766
+sample estimates:
+mean of the differences 
+             0.08045977 
+
+> 
+> #ANOVA Models
+> Anova(aov(speed ~ aest*pract, data=Stu3), type="III")
+Anova Table (Type III tests)
+
+Response: speed
+             Sum Sq  Df F value  Pr(>F)  
+(Intercept)   39.87   1  2.1292 0.14729  
+aest           0.07   1  0.0039 0.95031  
+pract         87.34   1  4.6639 0.03292 *
+aest:pract     0.04   1  0.0019 0.96488  
+Residuals   2116.16 113                  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> by(Stu3$speed, Stu3$pract, FUN=mean)
+Stu3$pract: -1
+[1] -0.2803333
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu3$pract: 1
+[1] 1.449123
+> 
+> ###Mediation
+> summary(glm(choice ~ aest*pract, family=binomial, data=Stu3))
+
+Call:
+glm(formula = choice ~ aest * pract, family = binomial, data = Stu3)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.6651  -1.1213   0.7585   1.1213   1.2346  
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)   
+(Intercept)  0.51592    0.19858   2.598  0.00938 **
+aest        -0.10015    0.19858  -0.504  0.61404   
+pract        0.51592    0.19858   2.598  0.00938 **
+aest:pract   0.03338    0.19858   0.168  0.86650   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 155.91  on 116  degrees of freedom
+Residual deviance: 148.56  on 113  degrees of freedom
+AIC: 156.56
+
+Number of Fisher Scoring iterations: 4
+
+> 
+> #Frequencies
+> addmargins(table(Stu3$choice, Stu3$pract))
+     
+       -1   1 Sum
+  0    30  15  45
+  1    30  42  72
+  Sum  60  57 117
+> 42/57
+[1] 0.7368421
+> 30/60
+[1] 0.5
+> 
+> #Estimate of the indirect effect and 95%-confidence interval
+> mean(boot_para2$ind_effect)
+[1] 0.5090594
+> sort(boot_para2$ind_effect)[126]
+[1] 0.0413163
+> sort(boot_para2$ind_effect)[4875]
+[1] 1.127037
+> 
+> ################################################################################################################################
+> ###Study 4)
+> 
+> ############################################################################
+> ###Pre Test
+> PT4 <- read_excel("4-Pretest Study 4.xlsx",sheet=1)
+-/                                                                                                                                                                                                  > 
+> summary(PT4)
+      Nr.           ÄsTürkis        ÄsDunkBl    
+ Min.   : 1.00   Min.   :1.000   Min.   :2.000  
+ 1st Qu.: 9.75   1st Qu.:1.000   1st Qu.:4.750  
+ Median :18.50   Median :3.000   Median :5.000  
+ Mean   :18.50   Mean   :3.083   Mean   :5.194  
+ 3rd Qu.:27.25   3rd Qu.:4.000   3rd Qu.:6.000  
+ Max.   :36.00   Max.   :7.000   Max.   :7.000  
+> 
+> t.test(PT4$ÄsTürkis, PT4$ÄsDunkBl, paired = TRUE, var.equal = TRUE)
+
+        Paired t-test
+
+data:  PT4$ÄsTürkis and PT4$ÄsDunkBl
+t = -5.8595, df = 35, p-value = 1.182e-06
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -2.842531 -1.379692
+sample estimates:
+mean of the differences 
+              -2.111111 
+
+> 
+> 
+> ############################################################################
+> ###Main Study
+> 
+> #Sample descriptives
+> table(Stu4$Gender)[1]/nrow(Stu4)
+        0 
+0.4108527 
+> mean(Stu4$Age, na.rm=T)
+[1] 24.46789
+> 
+> #Cronbach's alpha
+> alpha(Stu4[,5:7])
+
+Reliability analysis   
+Call: alpha(x = Stu4[, 5:7])
+
+  raw_alpha std.alpha G6(smc) average_r S/N    ase mean  sd median_r
+      0.94      0.94    0.92      0.85  17 0.0087  3.4 1.7     0.84
+
+ lower alpha upper     95% confidence boundaries
+0.93 0.94 0.96 
+
+ Reliability if an item is dropped:
+            raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
+Aesthetic_1      0.91      0.91    0.84      0.84  11    0.015    NA  0.84
+Aesthetic_2      0.90      0.90    0.82      0.82   9    0.018    NA  0.82
+Aesthetic_3      0.94      0.94    0.88      0.88  15    0.011    NA  0.88
+
+ Item statistics 
+              n raw.r std.r r.cor r.drop mean  sd
+Aesthetic_1 129  0.95  0.95  0.92   0.89  3.4 1.8
+Aesthetic_2 129  0.96  0.96  0.93   0.91  3.3 1.7
+Aesthetic_3 129  0.93  0.94  0.88   0.85  3.5 1.7
+
+Non missing response frequency for each item
+               1    2    3    4    5    6    7 miss
+Aesthetic_1 0.16 0.21 0.22 0.12 0.13 0.10 0.07    0
+Aesthetic_2 0.16 0.22 0.22 0.15 0.12 0.09 0.05    0
+Aesthetic_3 0.13 0.18 0.22 0.18 0.13 0.11 0.05    0
+> alpha(Stu4[,9:10])
+
+Reliability analysis   
+Call: alpha(x = Stu4[, 9:10])
+
+  raw_alpha std.alpha G6(smc) average_r S/N   ase mean  sd median_r
+      0.89      0.89    0.81      0.81 8.4 0.019  4.5 1.8     0.81
+
+ lower alpha upper     95% confidence boundaries
+0.86 0.89 0.93 
+
+ Reliability if an item is dropped:
+            raw_alpha std.alpha G6(smc) average_r S/N alpha se var.r med.r
+Durablity_1      0.81      0.81    0.65      0.81  NA       NA  0.81  0.81
+Durablity_2      0.65      0.81      NA        NA  NA       NA  0.65  0.81
+
+ Item statistics 
+              n raw.r std.r r.cor r.drop mean  sd
+Durablity_1 129  0.95  0.95  0.85   0.81  4.5 1.8
+Durablity_2 129  0.95  0.95  0.85   0.81  4.5 1.9
+
+Non missing response frequency for each item
+              1    2    3    4    5    6    7 miss
+Durablity_1 0.1 0.07 0.11 0.14 0.23 0.22 0.12    0
+Durablity_2 0.1 0.09 0.11 0.19 0.18 0.16 0.19    0
+Warnmeldung:
+In matrix(unlist(drop.item), ncol = 10, byrow = TRUE) :
+  Datenlänge [16] ist kein Teiler oder Vielfaches der Anzahl der Spalten [10]
+> 
+> #Manipulation checks
+> by(Stu4$Aesthetic, Stu4$aest, FUN=mean)
+Stu4$aest: -1
+[1] 3.176768
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu4$aest: 1
+[1] 3.671958
+> summary(aov(Aesthetic ~ aest, data=Stu4))
+             Df Sum Sq Mean Sq F value Pr(>F)  
+aest          1    7.9   7.904   2.909 0.0905 .
+Residuals   127  345.0   2.717                 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> by(Stu4$Durability, Stu4$durable, FUN=mean)
+Stu4$durable: -1
+[1] 3.856061
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+Stu4$durable: 1
+[1] 5.142857
+> summary(aov(Durability ~ durable, data=Stu4))
+             Df Sum Sq Mean Sq F value   Pr(>F)    
+durable       1   53.4   53.37   19.44 2.18e-05 ***
+Residuals   127  348.6    2.74                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> #ANOVA Models
+> Anova(aov(Writing.time ~ aest*durable, data=Stu4), type="III")
+Anova Table (Type III tests)
+
+Response: Writing.time
+                Sum Sq  Df  F value    Pr(>F)    
+(Intercept)  100643557   1 488.4332 < 2.2e-16 ***
+aest               216   1   0.0010  0.974211    
+durable          47525   1   0.2306  0.631888    
+aest:durable   1915685   1   9.2970  0.002802 ** 
+Residuals     25756737 125                       
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> by(Stu4$Writing.time, list(Stu4$aest, Stu4$durable), FUN=mean)
+: -1
+: -1
+[1] 987.7941
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+: 1
+: -1
+[1] 741.3438
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+: -1
+: 1
+[1] 782.3438
+--------------------------------------------------------------------------------------------------------------------------------------------------- 
+: 1
+: 1
+[1] 1023.613
+> 
+> #Printing the simple effect of font for the business brand
+> Femp_durable
+[1] 4.448298
+> Df_aest_durable
+[1] 1
+> Df_residual
+[1] 125
+> p_durable
+[1] 0.03693124
+> 
+> #Printing the simple effect of font for the leisure brand
+> Femp_nond
+[1] 4.859181
+> Df_aest_nond
+[1] 1
+> Df_residual
+[1] 125
+> p_nond
+[1] 0.02932993
+> 
+> 
